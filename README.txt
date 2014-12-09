@@ -1,3 +1,27 @@
+This is a playground repository where I play around with OBLIGE, by Andrew Apted, in order to
+see how further I can push it while playing around.
+
+Features more rooms layouts, prefabs and testing with expanding sizes, heights, in order to make
+formal modules for more customization and submit them to the master OBLIGE repository when they
+are properly baked.
+
+Maps generated with extreme size will not run (or so does the BSP generator say) on vanilla Doom, until further notice
+(the plan is to have it as a new setting later on, so you can crank it up to eleven if your port supports it).
+
+Most changes are being oriented towards zdoom/gzdoom/zandronum at the moment. Prefabs with png textures for the
+3D ports are on the way.
+
+This is not a formal port, however, so expect weird rooms and textures from time to time as changes land in here.
+
+Building process hasn't changed so far, so using the executables from regular OBLIGE will work with the changes here.
+
+The attic/web folders from the official repository have been excised to keep downloads and syncs faster.
+
+Hetdegon -- December 2014
+
+
+Here is the official OBLIGE readme verbatim for full reference of OBLIGE's doings and operations.
+
 
 OBLIGE 6.10-RC1
 ===============
@@ -79,4 +103,3 @@ CONTACT DETAILS
   Forum: http://oblige.sourceforge.net/forum/
 
   Email: <ajapted@users.sf.net>
-
