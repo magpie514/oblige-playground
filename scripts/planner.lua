@@ -154,25 +154,23 @@ function Plan_determine_size()
     H = HEIGHTS[n]
 
   else
-  
---    local WIDTHS  = { tiny=3, small=4, regular=6, large=7, extreme=9 }
---    local HEIGHTS = { tiny=2, small=3, regular=4, large=6, extreme=8 }
+      local WIDTHS  = { tiny=3, small=4, regular=6, large=7, extreme=9, massive=15 }
+      local HEIGHTS = { tiny=2, small=3, regular=4, large=6, extreme=8, massive=14 }
 
-    local WIDTHS  = { tiny=3, small=4, regular=6, large=7, extreme=15 }
-    local HEIGHTS = { tiny=2, small=3, regular=4, large=6, extreme=14 }
-    --Hetdegon: Currently vanilla-breaking (?) settings applied.
-    --14x13 seems to be the highest safe value one can go without breaking vanilla compat.
-    --15x14 (and above) will make a nice, very packed layout, but node generator will complain about it requiring an advanced port.
-    --Larger sizes will produce no noticeable changes in size or room density.
+      --Hetdegon:
+      --14x13 seems to be the highest safe value one can go without breaking vanilla compat.
+      --15x14 (and above) will make a nice, very packed layout, but node generator will complain about it requiring an advanced port.
+      --Larger sizes will produce no noticeable changes in size or room density.
+      --15x14 can produce as many as 130 rooms on average.
 
-    W =  WIDTHS[ob_size]
-    H = HEIGHTS[ob_size]
+      W =  WIDTHS[ob_size]
+      H = HEIGHTS[ob_size]
 
-    if not W then
-      error("Unknown size keyword: " .. tostring(ob_size))
-    end
+      if not W then
+        error("Unknown size keyword: " .. tostring(ob_size))
+      end
 
-    if rand.odds(30) and not LEVEL.secret_exit then
+    if rand.odds(20) and not LEVEL.secret_exit then
       W = W - 1
     end
   end

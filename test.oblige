@@ -21,6 +21,7 @@ health = normal
 ammo = less
 
 ---- Modules ----
+@massive_map = 1
 
 @doom_mon_control = 0
 
