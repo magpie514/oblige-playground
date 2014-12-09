@@ -1,6 +1,6 @@
 This is a playground repository where I play around with OBLIGE, by Andrew Apted, in order to see how further I can push it while playing around.
 
-Features more rooms layouts, prefabs and testing with expanding sizes, heights, in order to make formal modules for more customization and submit them to the master OBLIGE repository when they are properly baked.
+Features more rooms layouts and prefabs. Also testing with expanding sizes, heights, in order to make formal modules for more customization and submit them to the master OBLIGE repository when they are properly baked.
 
 Maps generated with massive map module will not run (or so does the BSP generator say) on vanilla Doom.
 I might add options to have it cap at the highest safe value if anyone asks.
