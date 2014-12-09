@@ -4,7 +4,7 @@
 
 PREFABS.Lift_outie =
 {
-  file   = "stairs/lift.wad"
+  file   = "stairs/A_lift_fast.wad"
   where  = "chunk"
 
   z_fit  = "bottom"
@@ -19,4 +19,3 @@ PREFABS.Lift_outie =
 
   prob = 90
 }
-
