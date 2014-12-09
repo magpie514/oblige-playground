@@ -608,7 +608,7 @@ function Layout_spot_for_wotsit(R, kind, none_OK)
 
     -- apply the skill bits from prefab
     if spot.rank then
-      score = score + (spot.rank - 1) * 5 
+      score = score + (spot.rank - 1) * 5
     end
 
     -- want a different height
@@ -1226,7 +1226,7 @@ function Layout_add_pillars(R)
         make_pillar_pattern(10-side, offset, pat2)
 
         R.pillar_rows =
-        { 
+        {
           { side=side,    offset=offset }
           { side=10-side, offset=offset }
         }
@@ -1900,7 +1900,7 @@ end
     S.kind = "void"
     S.w_tex = solid_tex  -- can be NIL
 
-    if pat.solid_feature and R.use_solid_feature then 
+    if pat.solid_feature and R.use_solid_feature then
       S.solid_feature = true
     end
   end
@@ -2277,7 +2277,7 @@ end
       if not touches_a_building(sx1, sy1, sx2, sy2) then
         return -1
       end
-    end 
+    end
 
     -- the overlay floor overrides any floor underneath
     local floor = P.floor
@@ -2622,7 +2622,7 @@ end
         end -- x_mir, y_mir
         end
 
-      end -- xs, ys 
+      end -- xs, ys
       end
 
     end -- trans
@@ -2824,10 +2824,16 @@ gui.debugf("  gap_z --> %d  want_gap --> %d\n", gap_z, want_gap)
       if tab[32] then tab[32] = tab[32] * 4 end
       if tab[48] then tab[48] = tab[48] * 2 end
 
-    elseif STYLE.steepness == "heaps" then
+    elseif STYLE.steepness == "more" then
       if tab[16] then tab[16] = tab[16] / 8 end
       if tab[32] then tab[32] = tab[32] / 4 end
       if tab[48] then tab[48] = tab[48] / 2 end
+      
+    elseif STYLE.steepness == "heaps" then --Hetdegon: Cranking it up to eleven to see how much more can be added.
+      if tab[16] then tab[16] = tab[16] end
+      if tab[32] then tab[32] = tab[32] end
+      if tab[48] then tab[48] = tab[48] end
+      
     end
 
     return tab
@@ -3823,7 +3829,7 @@ function Layout_plan_outdoor_borders()
   end
 
 
-  local function subdivide_foo(long, num) 
+  local function subdivide_foo(long, num)
     local num = int(long / 3)
     assert(num >= 1)
 
@@ -4296,7 +4302,7 @@ function Layout_build_outdoor_borders()
     -- level has two starting rooms for CO-OP ?
     if kind == "START" and LEVEL.alt_start then return end
 
-    -- FIXME : check if a usable prefab exists  (i.e. def.purpose == B.content_kind) 
+    -- FIXME : check if a usable prefab exists  (i.e. def.purpose == B.content_kind)
 
     each goal in R.goals do
       if goal.kind != kind then continue end
@@ -4370,4 +4376,3 @@ function Layout_build_outdoor_borders()
 
   fill_remaining_gaps()
 end
-

@@ -81,7 +81,7 @@ SEED_SIZE = 192
 EDGE_SEEDS  = 3
 DEPOT_SEEDS = 4
 
-EXTREME_H = 4000
+EXTREME_H = 24000 --Hetdegon: original value = 4000. Testing out how far I can push it.
 
 SKILLS = { "easy", "medium", "hard" }
 
@@ -125,4 +125,3 @@ HEALTH_AMMO_ADJUSTS =
 
 COOP_HEALTH_FACTOR = 1.3
 COOP_AMMO_FACTOR   = 1.6
-

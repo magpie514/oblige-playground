@@ -25,7 +25,7 @@ class SECTION
   -- a section is a rectangular group of seeds.
   -- sections are used for planning where to place rooms.
 
-  kx, ky  -- location in section map 
+  kx, ky  -- location in section map
 
   sx1, sy1, sx2, sy2, sw, sh  -- location in seed map
 
@@ -154,8 +154,16 @@ function Plan_determine_size()
     H = HEIGHTS[n]
 
   else
-    local WIDTHS  = { tiny=3, small=4, regular=6, large=7, extreme=9 }
-    local HEIGHTS = { tiny=2, small=3, regular=4, large=6, extreme=8 }
+  
+--    local WIDTHS  = { tiny=3, small=4, regular=6, large=7, extreme=9 }
+--    local HEIGHTS = { tiny=2, small=3, regular=4, large=6, extreme=8 }
+
+    local WIDTHS  = { tiny=3, small=4, regular=6, large=7, extreme=15 }
+    local HEIGHTS = { tiny=2, small=3, regular=4, large=6, extreme=14 }
+    --Hetdegon: Currently vanilla-breaking (?) settings applied.
+    --14x13 seems to be the highest safe value one can go without breaking vanilla compat.
+    --15x14 (and above) will make a nice, very packed layout, but node generator will complain about it requiring an advanced port.
+    --Larger sizes will produce no noticeable changes in size or room density.
 
     W =  WIDTHS[ob_size]
     H = HEIGHTS[ob_size]
@@ -370,7 +378,7 @@ function Plan_reserve_rooms()
 
     if not K then return end
 
-    local R = ROOM_CLASS.new()  
+    local R = ROOM_CLASS.new()
 
     K.room = R
 
@@ -550,7 +558,7 @@ function Plan_add_normal_rooms()
     -- never use the whole map (horizontally)
     if big_w >= LEVEL.W then big_w = big_w - 1 end
 
-    -- prevent excessively large rooms 
+    -- prevent excessively large rooms
     local sw, sh
     local max_size = 12
 
@@ -1530,4 +1538,3 @@ function Plan_create_rooms()
     gui.printf("Final %s   size: %dx%d\n", R:tostr(), R.sw,R.sh)
   end
 end
-
