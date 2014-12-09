@@ -19,7 +19,7 @@
 ------------------------------------------------------------------------
 
 
--- 
+--
 -- Symbols used here:
 --
 --    .         main floor (the lowest one)
@@ -28,7 +28,7 @@
 --    #         solid block
 --
 --    ~         liquid
--- 
+--
 --    a b c d   sub-areas (for recursive patterns)
 --
 --    ?         filler (in recursive patterns)
@@ -42,15 +42,134 @@
 --    { } V A   stairs to a higher layer (3D floor)
 --
 
+ROOM_PATTERNS = {
+SOLID_C4 = {
+	prob = 90
 
-ROOM_PATTERNS =
+	environment = "indoor"
+	solid_feature = true
+	symmetry = "xy"
+
+	structure =
+	{
+		".#.#.#."
+		"......."
+		".#.#.#."
+	}
+
+	x_sizes = { "1111111", "1131311", "1110111", "1122211", "1121211", "1131311", "2111112" }
+	y_sizes = { "111", "121", "131", "141", "151", "161", "171" }
+}
+
+MULTI_LIQUID_C1 = {
+	prob = 10000
+
+	environment = "indoor"
+	symmetry = "xy"
+
+	structure =
+	{
+		".>2~2<."
+		"..~~~.."
+		".>2~2<."
+	}
+
+	overlay =
+	{
+		"   2   "
+		"       "
+		"   2   "
+	}
+
+	x_sizes = {	"1112111", "1113111", "1114111", "1115111", "1116111", "1117111", "1118111", "1119111" }
+	y_sizes = { "111", "121" }
+}
+		
+MULTI_T1 = {
+	prob = 0
+	shape = "T"
+	symmetry = "y"
+	environment = "any"
+	structure =	{
+		"4."
+		"^."
+		".."
+		"v."
+		"4."
+	}
+	overlay = {
+		" 4"
+		" 4"
+		"44"
+		" 4"
+		" 4"
+	}
+	
+	x_sizes = { "12", "13", "14", "15", "16", "17", "18", "19" }
+	y_sizes = { "11111", "11211", "11311", "11411", "11511", "11611", "11711" }
+}
+
+MULTI_T2 = {
+	prob = 0
+	shape = "T"
+	symmetry = "y"
+	structure =	{
+		"2.."
+		"2.."
+		"^.."
+		"1<."
+		"v.."
+		"2.."
+		"2.."
+	}
+	overlay = {
+		" 22"
+		"  2"
+		"  2"
+		"  2"
+		"  2"
+		"  2"
+		" 22"
+	}
+	
+	x_sizes = { "111", "112", "113", "114", "115" }
+	y_sizes = { "1011101", "1111111", "1211121", "1311131", "1411141" }
+}
+
+MULTI_E1 =
 {
+	prob = 9999
 
+	shape = "E"
+	environment = "any"
 
----------------------------
---  SOLID and DIAGONALS  --
----------------------------
+	structure = {
+		"/.~.%"
+		"..~.."
+		"1<~.."
+		"..~.."
+		"1<~.."
+		"..~.."
+		"N.~.Z"
+	}
+	
+	overlay = {
+		"  .  "
+		"    1"
+		"  . 1"
+		"11111"
+		"  . 1"
+		"    1"
+		"  .  "
+	}
 
+	x_sizes = { "11101", "11111", "11211", "11121" }
+	y_sizes = { "1111111", "0112110", "1211121", "0212120", "1212121", "1213121", "1114111" }
+}
+
+}
+	
+BACKUP_PATTERNS={
 SOLID_P1 =
 {
   prob = 130
@@ -114,6 +233,8 @@ SOLID_P3 =
   x_sizes = { "11111", "11211" }
   y_sizes = { "11111", "11211" }
 }
+
+
 
 
 --[[ FIXME !!!!!!
@@ -2769,4 +2890,3 @@ RECURSE_WOW_LIQUID_O4 =
 
 
 } -- end of ROOM_PATTERNS
-
